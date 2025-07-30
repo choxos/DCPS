@@ -1,0 +1,389 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About DCPS{% endblock %}
+
+{% block meta_description %}Learn about the DCPS project - a comprehensive systematic review of dental caries prevalence in Canada from 1990-2025.{% endblock %}
+
+{% block content %}
+<div class="xera-page-header">
+    <h1 class="xera-page-title">About DCPS</h1>
+    <p class="xera-page-subtitle">
+        Dental Caries Population Studies in Canada: A systematic review and analysis project
+    </p>
+</div>
+
+<div class="row">
+    <div class="col-lg-8">
+        <!-- Project Overview -->
+        <div class="xera-card mb-6">
+            <div class="xera-card-header">
+                <h3 class="xera-card-title">
+                    <i class="fas fa-info-circle xera-text-primary"></i>
+                    Project Overview
+                </h3>
+            </div>
+            <div class="xera-card-body">
+                <p class="mb-4">
+                    The Dental Caries Population Studies (DCPS) project represents a comprehensive 
+                    systematic review and analysis of dental caries prevalence in Canada spanning 
+                    from 1990 to 2025, with advanced Bayesian modeling projections extending to 2050.
+                </p>
+                
+                <p class="mb-4">
+                    Dental caries remains one of the most prevalent non-communicable diseases globally, 
+                    affecting individuals across the lifespan and imposing substantial health and 
+                    economic burdens on healthcare systems. In Canada, despite advancements in dental 
+                    care and public health interventions, dental caries continues to be a significant 
+                    public health challenge with disparities across geographic regions, socioeconomic 
+                    groups, and demographic strata.
+                </p>
+
+                <p class="mb-4">
+                    Our systematic approach utilizes the DMFT/dmft index (Decayed, Missing, Filled 
+                    Teeth for permanent and deciduous teeth respectively) as the primary epidemiological 
+                    indicator for measuring dental caries burden across Canadian populations.
+                </p>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5 class="xera-font-semibold mb-3">Primary Objectives</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <i class="fas fa-check-circle xera-text-success me-2"></i>
+                                Estimate national and subnational trends (1990-2025)
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check-circle xera-text-success me-2"></i>
+                                Project dental caries patterns to 2050
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check-circle xera-text-success me-2"></i>
+                                Quantify age, sex, and geographic variation
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="xera-font-semibold mb-3">Secondary Objectives</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <i class="fas fa-arrow-right xera-text-primary me-2"></i>
+                                Examine DMFT/dmft component disparities
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-arrow-right xera-text-primary me-2"></i>
+                                Assess socioeconomic and healthcare factors
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-arrow-right xera-text-primary me-2"></i>
+                                Identify high-burden regions and populations
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-arrow-right xera-text-primary me-2"></i>
+                                Evaluate water fluoridation impact
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Methodology -->
+        <div class="xera-card mb-6">
+            <div class="xera-card-header">
+                <h3 class="xera-card-title">
+                    <i class="fas fa-microscope xera-text-primary"></i>
+                    Methodology
+                </h3>
+            </div>
+            <div class="xera-card-body">
+                <p class="mb-4">
+                    Our analysis employs a comprehensive Bayesian hierarchical modeling approach 
+                    using the Integrated Nested Laplace Approximation (INLA) methodology. This 
+                    advanced statistical framework provides several key advantages:
+                </p>
+
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="p-4 bg-light rounded">
+                            <h6 class="xera-font-semibold mb-2">
+                                <i class="fas fa-layer-group xera-text-primary me-2"></i>
+                                Hierarchical Structure
+                            </h6>
+                            <p class="small mb-0">
+                                Models nested data from individuals within age groups, 
+                                within geographic regions, within time periods.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="p-4 bg-light rounded">
+                            <h6 class="xera-font-semibold mb-2">
+                                <i class="fas fa-map-marked-alt xera-text-primary me-2"></i>
+                                Spatial Modeling
+                            </h6>
+                            <p class="small mb-0">
+                                Besag-York-Mollié (BYM2) models capture geographic 
+                                patterns and spatial autocorrelation.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="p-4 bg-light rounded">
+                            <h6 class="xera-font-semibold mb-2">
+                                <i class="fas fa-clock xera-text-primary me-2"></i>
+                                Temporal Analysis
+                            </h6>
+                            <p class="small mb-0">
+                                Random walk priors model smooth temporal trends 
+                                while capturing changes over time.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="p-4 bg-light rounded">
+                            <h6 class="xera-font-semibold mb-2">
+                                <i class="fas fa-users xera-text-primary me-2"></i>
+                                Small Area Estimation
+                            </h6>
+                            <p class="small mb-0">
+                                "Borrows strength" across spatial and temporal domains 
+                                for robust estimates in sparse data regions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i>
+                    <strong>Technical Implementation:</strong> 
+                    Our models use negative binomial likelihood to handle overdispersion 
+                    typical in dental caries count data, with penalized complexity priors 
+                    to prevent overfitting.
+                </div>
+            </div>
+        </div>
+
+        <!-- Impact and Applications -->
+        <div class="xera-card">
+            <div class="xera-card-header">
+                <h3 class="xera-card-title">
+                    <i class="fas fa-bullseye xera-text-primary"></i>
+                    Impact and Applications
+                </h3>
+            </div>
+            <div class="xera-card-body">
+                <p class="mb-4">
+                    The DCPS project generates evidence to support policy decisions and 
+                    intervention strategies at multiple levels:
+                </p>
+
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="text-center p-4 border rounded">
+                            <i class="fas fa-landmark" style="font-size: 2.5rem; color: var(--xera-primary);"></i>
+                            <h6 class="mt-3 mb-2">Policy Makers</h6>
+                            <p class="small mb-0">
+                                Evidence-based resource allocation and 
+                                targeted intervention planning
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="text-center p-4 border rounded">
+                            <i class="fas fa-user-md" style="font-size: 2.5rem; color: var(--xera-primary);"></i>
+                            <h6 class="mt-3 mb-2">Healthcare Providers</h6>
+                            <p class="small mb-0">
+                                Population-level trends to inform 
+                                clinical practice and prevention strategies
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="text-center p-4 border rounded">
+                            <i class="fas fa-graduation-cap" style="font-size: 2.5rem; color: var(--xera-primary);"></i>
+                            <h6 class="mt-3 mb-2">Researchers</h6>
+                            <p class="small mb-0">
+                                Comprehensive data for hypothesis generation 
+                                and comparative effectiveness research
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="col-lg-4">
+        <!-- Project Metadata -->
+        {% if project_metadata %}
+        <div class="xera-card mb-4">
+            <div class="xera-card-header">
+                <h4 class="xera-card-title">
+                    <i class="fas fa-file-alt xera-text-primary"></i>
+                    Project Details
+                </h4>
+            </div>
+            <div class="xera-card-body">
+                <table class="table table-sm">
+                    <tr>
+                        <td class="fw-medium">Version:</td>
+                        <td>{{ project_metadata.protocol_version }}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-medium">Last Updated:</td>
+                        <td>{{ project_metadata.last_updated|date:"M d, Y" }}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-medium">Search Period:</td>
+                        <td>{{ project_metadata.search_start_date|date:"Y" }} - {{ project_metadata.search_end_date|date:"Y" }}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-medium">Analysis Software:</td>
+                        <td>{{ project_metadata.analysis_software }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Research Team -->
+        <div class="xera-card mb-4">
+            <div class="xera-card-header">
+                <h4 class="xera-card-title">
+                    <i class="fas fa-users xera-text-primary"></i>
+                    Research Team
+                </h4>
+            </div>
+            <div class="xera-card-body">
+                <div class="team-member mb-3">
+                    <h6 class="mb-1">Ahmad Sofi-Mahmudi</h6>
+                    <p class="small xera-text-muted mb-2">Principal Investigator</p>
+                    <p class="small mb-0">Independent researcher, Toronto, ON, Canada</p>
+                    <p class="small">
+                        <i class="fas fa-envelope xera-text-primary me-1"></i>
+                        <a href="mailto:a.sofimahmudi@gmail.com">a.sofimahmudi@gmail.com</a>
+                    </p>
+                </div>
+
+                <div class="team-member mb-3">
+                    <h6 class="mb-1">Reyhaneh Shoorgashti</h6>
+                    <p class="small xera-text-muted mb-2">Co-Investigator</p>
+                    <p class="small mb-0">Islamic Azad University of Medical Sciences, Tehran, Iran</p>
+                </div>
+
+                <div class="team-member mb-3">
+                    <h6 class="mb-1">Additional Team Members</h6>
+                    <p class="small mb-0">
+                        Sana Baghizadeh, Zahra Bahmani, Sarvnaz Hosseinipour
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="xera-card mb-4">
+            <div class="xera-card-header">
+                <h4 class="xera-card-title">
+                    <i class="fas fa-chart-bar xera-text-primary"></i>
+                    Coverage Statistics
+                </h4>
+            </div>
+            <div class="xera-card-body">
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="small">Canadian Provinces/Territories</span>
+                    <span class="small fw-bold">13</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="small">Study Period</span>
+                    <span class="small fw-bold">35 years</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="small">Projection Period</span>
+                    <span class="small fw-bold">2025-2050</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="small">Primary Indices</span>
+                    <span class="small fw-bold">DMFT/dmft</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Links -->
+        <div class="xera-card">
+            <div class="xera-card-header">
+                <h4 class="xera-card-title">
+                    <i class="fas fa-external-link-alt xera-text-primary"></i>
+                    Related Resources
+                </h4>
+            </div>
+            <div class="xera-card-body">
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <a href="{% url 'studies:protocol' %}" class="text-decoration-none">
+                            <i class="fas fa-file-alt xera-text-primary me-2"></i>
+                            Research Protocol
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="{% url 'studies:methodology' %}" class="text-decoration-none">
+                            <i class="fas fa-cogs xera-text-primary me-2"></i>
+                            Detailed Methodology
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="https://xeradb.com" target="_blank" class="text-decoration-none">
+                            <i class="fas fa-globe xera-text-primary me-2"></i>
+                            Xera DB Ecosystem
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="mailto:a.sofimahmudi@gmail.com" class="text-decoration-none">
+                            <i class="fas fa-envelope xera-text-primary me-2"></i>
+                            Contact Research Team
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Funding and Acknowledgments -->
+<div class="dcps-card">
+    <div class="row">
+        <div class="col-md-6">
+            <h4 class="xera-font-semibold mb-3">
+                <i class="fas fa-heart xera-text-primary me-2"></i>
+                Acknowledgments
+            </h4>
+            <p class="mb-3">
+                This research project is conducted as part of the Xera DB research ecosystem, 
+                dedicated to advancing evidence-based healthcare through comprehensive data 
+                analysis and visualization.
+            </p>
+            <p class="small xera-text-muted">
+                We acknowledge the contributions of all researchers and institutions whose 
+                primary studies form the foundation of this systematic review.
+            </p>
+        </div>
+        <div class="col-md-6">
+            <h4 class="xera-font-semibold mb-3">
+                <i class="fas fa-quote-left xera-text-primary me-2"></i>
+                Citation
+            </h4>
+            <div class="p-3 bg-light rounded">
+                <p class="small mb-0">
+                    <strong>Suggested Citation:</strong><br>
+                    Sofi-Mahmudi, A., Shoorgashti, R., et al. (2024). 
+                    Dental Caries Population Studies (DCPS): A systematic review 
+                    and Bayesian analysis of dental caries prevalence in Canada 
+                    (1990-2025). DCPS Database. Available at: https://dcps.xeradb.com
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %} 

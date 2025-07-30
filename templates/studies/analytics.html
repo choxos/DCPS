@@ -1,0 +1,331 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Advanced Analytics{% endblock %}
+
+{% block meta_description %}Advanced analytics and modeling for dental caries data in Canada. Bayesian spatial-temporal analysis and trend projections.{% endblock %}
+
+{% block content %}
+<div class="xera-page-header">
+    <h1 class="xera-page-title">Advanced Analytics</h1>
+    <p class="xera-page-subtitle">
+        Bayesian hierarchical modeling and spatial-temporal analysis of dental caries trends
+    </p>
+</div>
+
+<!-- Analysis Status -->
+<div class="alert alert-info d-flex align-items-center mb-6" role="alert">
+    <i class="fas fa-info-circle me-3"></i>
+    <div>
+        <strong>Analysis in Progress:</strong> 
+        Advanced analytical features are currently under development as we complete data extraction 
+        and implement the Bayesian hierarchical modeling framework described in our protocol.
+    </div>
+</div>
+
+<!-- Coming Soon Features -->
+<div class="row">
+    <div class="col-lg-8">
+        <div class="xera-card mb-6">
+            <div class="xera-card-header">
+                <h3 class="xera-card-title">
+                    <i class="fas fa-brain xera-text-primary"></i>
+                    Planned Analytical Features
+                </h3>
+            </div>
+            <div class="xera-card-body">
+                {% if coming_soon_features %}
+                    <div class="row">
+                        {% for feature in coming_soon_features %}
+                            <div class="col-md-6 mb-4">
+                                <div class="d-flex align-items-start">
+                                    <div class="dcps-badge dcps-badge-warning me-3">Coming Soon</div>
+                                    <div>
+                                        <h6 class="mb-2">{{ feature }}</h6>
+                                        <p class="small xera-text-muted mb-0">
+                                            {% if "Bayesian" in feature %}
+                                                Implementation of hierarchical spatial-temporal models using R-INLA
+                                            {% elif "projection" in feature %}
+                                                Forecasting caries trends to 2050 with uncertainty quantification
+                                            {% elif "Risk factor" in feature %}
+                                                Analysis of socioeconomic and geographic determinants
+                                            {% elif "hotspot" in feature %}
+                                                Identification of high-burden regions using spatial clustering
+                                            {% elif "Age-period" in feature %}
+                                                Decomposition of temporal trends into age, period, and cohort effects
+                                            {% elif "Intervention" in feature %}
+                                                Evaluation of policy interventions and their population-level impact
+                                            {% else %}
+                                                Advanced statistical analysis and modeling capabilities
+                                            {% endif %}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Methodology Overview -->
+        <div class="xera-card">
+            <div class="xera-card-header">
+                <h3 class="xera-card-title">
+                    <i class="fas fa-cogs xera-text-primary"></i>
+                    Analytical Framework
+                </h3>
+            </div>
+            <div class="xera-card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5 class="xera-font-semibold mb-3">Bayesian Hierarchical Modeling</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <i class="fas fa-check-circle xera-text-success me-2"></i>
+                                Integrated Nested Laplace Approximation (INLA)
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check-circle xera-text-success me-2"></i>
+                                Besag-York-Mollié (BYM2) spatial models
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check-circle xera-text-success me-2"></i>
+                                Random walk temporal priors
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check-circle xera-text-success me-2"></i>
+                                Negative binomial likelihood
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="xera-font-semibold mb-3">Data Structure</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <i class="fas fa-layer-group xera-text-primary me-2"></i>
+                                Province/Territory level
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-layer-group xera-text-primary me-2"></i>
+                                Age group stratification
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-layer-group xera-text-primary me-2"></i>
+                                Sex-specific estimates
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-layer-group xera-text-primary me-2"></i>
+                                Temporal trends (1990-2025)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <hr class="my-4">
+
+                <h5 class="xera-font-semibold mb-3">Model Specification</h5>
+                <div class="bg-light p-4 rounded">
+                    <code class="small">
+                        log(μ<sub>ijkl</sub>) = α + X<sub>ijkl</sub>'β + S<sub>i</sub> + T<sub>j</sub> + A<sub>k</sub> + G<sub>l</sub> + (ST)<sub>ij</sub> + (SA)<sub>ik</sub> + (TA)<sub>jk</sub> + ε<sub>ijkl</sub>
+                    </code>
+                    <p class="small xera-text-muted mt-2 mb-0">
+                        Where μ represents expected DMFT/dmft, with spatial (S), temporal (T), age (A), and sex (G) effects, 
+                        plus their interactions and covariates (X).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="col-lg-4">
+        <!-- Progress Tracker -->
+        <div class="xera-card mb-4">
+            <div class="xera-card-header">
+                <h4 class="xera-card-title">
+                    <i class="fas fa-tasks xera-text-primary"></i>
+                    Project Progress
+                </h4>
+            </div>
+            <div class="xera-card-body">
+                <div class="progress-item mb-4">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="small fw-medium">Data Extraction</span>
+                        <span class="small">75%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-warning" style="width: 75%"></div>
+                    </div>
+                </div>
+
+                <div class="progress-item mb-4">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="small fw-medium">Database Development</span>
+                        <span class="small">90%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-success" style="width: 90%"></div>
+                    </div>
+                </div>
+
+                <div class="progress-item mb-4">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="small fw-medium">Model Implementation</span>
+                        <span class="small">25%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-info" style="width: 25%"></div>
+                    </div>
+                </div>
+
+                <div class="progress-item mb-4">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="small fw-medium">Web Platform</span>
+                        <span class="small">60%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" style="width: 60%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Stack -->
+        <div class="xera-card mb-4">
+            <div class="xera-card-header">
+                <h4 class="xera-card-title">
+                    <i class="fas fa-code xera-text-primary"></i>
+                    Technical Stack
+                </h4>
+            </div>
+            <div class="xera-card-body">
+                <div class="tech-stack-item mb-3">
+                    <div class="d-flex align-items-center">
+                        <i class="fab fa-r-project xera-text-primary me-3"></i>
+                        <div>
+                            <div class="fw-medium">R + INLA</div>
+                            <small class="xera-text-muted">Bayesian modeling</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tech-stack-item mb-3">
+                    <div class="d-flex align-items-center">
+                        <i class="fab fa-python xera-text-primary me-3"></i>
+                        <div>
+                            <div class="fw-medium">Python</div>
+                            <small class="xera-text-muted">Data processing</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tech-stack-item mb-3">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-database xera-text-primary me-3"></i>
+                        <div>
+                            <div class="fw-medium">PostgreSQL</div>
+                            <small class="xera-text-muted">Data storage</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tech-stack-item mb-3">
+                    <div class="d-flex align-items-center">
+                        <i class="fab fa-js-square xera-text-primary me-3"></i>
+                        <div>
+                            <div class="fw-medium">D3.js + Chart.js</div>
+                            <small class="xera-text-muted">Visualization</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact & Collaboration -->
+        <div class="xera-card">
+            <div class="xera-card-header">
+                <h4 class="xera-card-title">
+                    <i class="fas fa-users xera-text-primary"></i>
+                    Collaboration
+                </h4>
+            </div>
+            <div class="xera-card-body">
+                <p class="small mb-3">
+                    Interested in collaborating or accessing preliminary results? 
+                    Contact our research team.
+                </p>
+                <div class="d-grid gap-2">
+                    <a href="mailto:a.sofimahmudi@gmail.com" class="xera-btn xera-btn-primary xera-btn-sm">
+                        <i class="fas fa-envelope me-2"></i>
+                        Contact Team
+                    </a>
+                    <a href="{% url 'studies:protocol' %}" class="xera-btn xera-btn-outline xera-btn-sm">
+                        <i class="fas fa-file-alt me-2"></i>
+                        View Protocol
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Preview Placeholder -->
+<div class="dcps-card">
+    <div class="text-center py-5">
+        <i class="fas fa-chart-bar" style="font-size: 4rem; color: var(--xera-gray-300);"></i>
+        <h3 class="mt-4 xera-font-semibold">Interactive Analytics Dashboard</h3>
+        <p class="xera-text-muted mb-4">
+            Advanced visualization and modeling tools will be available here once data extraction is complete.
+        </p>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="p-4 bg-light rounded">
+                            <i class="fas fa-map-marked-alt xera-text-primary" style="font-size: 2rem;"></i>
+                            <h6 class="mt-2 mb-0">Spatial Maps</h6>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="p-4 bg-light rounded">
+                            <i class="fas fa-line-chart xera-text-primary" style="font-size: 2rem;"></i>
+                            <h6 class="mt-2 mb-0">Trend Analysis</h6>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="p-4 bg-light rounded">
+                            <i class="fas fa-crystal-ball xera-text-primary" style="font-size: 2rem;"></i>
+                            <h6 class="mt-2 mb-0">Projections</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.progress {
+    height: 8px;
+    background-color: var(--xera-gray-200);
+    border-radius: 4px;
+}
+
+.progress-bar {
+    border-radius: 4px;
+}
+
+.tech-stack-item {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--xera-gray-100);
+}
+
+.tech-stack-item:last-child {
+    border-bottom: none;
+}
+</style>
+{% endblock %} 

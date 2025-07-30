@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% block meta_description %}DCPS - Dental Caries Population Studies in Canada{% endblock %}">
+    <meta name="keywords" content="dental caries, DMFT, dmft, Canada, oral health, systematic review, epidemiology">
+    <meta name="author" content="Ahmad Sofi-Mahmudi">
+    
+    <title>{% block title %}DCPS{% endblock %} | Dental Caries Population Studies</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{% load static %}{% static 'images/favicon.ico' %}">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Bootstrap CSS (for compatibility) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Xera Unified Theme -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/xera-unified-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dcps-theme.css' %}">
+    
+    {% block extra_css %}{% endblock %}
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "DCPS - Dental Caries Population Studies",
+        "description": "Comprehensive database of dental caries studies in Canada with systematic review analysis",
+        "url": "https://dcps.xeradb.com",
+        "author": {
+            "@type": "Person",
+            "name": "Ahmad Sofi-Mahmudi",
+            "email": "a.sofimahmudi@gmail.com"
+        },
+        "applicationCategory": "ResearchTool",
+        "operatingSystem": "Web Browser"
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="xera-header">
+        <div class="container">
+            <a href="{% url 'studies:home' %}" class="xera-logo">
+                <span class="xera-logo-icon">
+                    <i class="fas fa-tooth"></i>
+                </span>
+                DCPS
+            </a>
+            
+            <nav>
+                <ul class="xera-nav">
+                    <li><a href="{% url 'studies:home' %}" {% if request.resolver_match.url_name == 'home' %}class="active"{% endif %}>Home</a></li>
+                    <li><a href="{% url 'studies:study_list' %}" {% if request.resolver_match.url_name == 'study_list' %}class="active"{% endif %}>Studies</a></li>
+                    <li><a href="{% url 'studies:dashboard' %}" {% if request.resolver_match.url_name == 'dashboard' %}class="active"{% endif %}>Dashboard</a></li>
+                    <li><a href="{% url 'studies:analytics' %}" {% if request.resolver_match.url_name == 'analytics' %}class="active"{% endif %}>Analytics</a></li>
+                    <li><a href="{% url 'studies:about' %}" {% if request.resolver_match.url_name == 'about' %}class="active"{% endif %}>About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="xera-main">
+        <div class="xera-container">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="xera-footer">
+        <div class="container">
+            <div class="xera-footer-text">
+                <p><strong>DCPS</strong> - Dental Caries Population Studies in Canada</p>
+                <p>Systematic review and analysis of dental caries prevalence data (1990-2025)</p>
+            </div>
+            <ul class="xera-footer-links">
+                <li><a href="{% url 'studies:about' %}">About</a></li>
+                <li><a href="{% url 'studies:methodology' %}">Methodology</a></li>
+                <li><a href="{% url 'studies:protocol' %}">Protocol</a></li>
+                <li><a href="mailto:a.sofimahmudi@gmail.com">Contact</a></li>
+                <li><a href="https://xeradb.com" target="_blank">Xera DB</a></li>
+            </ul>
+            <div class="xera-footer-text">
+                <small>&copy; 2024 DCPS Project. Part of the Xera DB research ecosystem.</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    {% block extra_js %}{% endblock %}
+</body>
+</html> 

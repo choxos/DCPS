@@ -1,0 +1,449 @@
+/**
+ * Xera DB Unified Theme System
+ * 
+ * This CSS file provides a consistent design language across all Xera DB research applications
+ * while allowing each app to have its unique color identity through CSS custom properties.
+ */
+
+/* =============================================================================
+   CSS CUSTOM PROPERTIES (VARIABLES) - APP-SPECIFIC COLORS
+   ============================================================================= */
+
+/* Default colors - will be overridden by app-specific stylesheets */
+:root {
+  /* Primary Brand Colors */
+  --xera-primary: #2563eb;
+  --xera-primary-light: #3b82f6;
+  --xera-primary-dark: #1d4ed8;
+  --xera-primary-50: #eff6ff;
+  --xera-primary-100: #dbeafe;
+  --xera-primary-500: #3b82f6;
+  --xera-primary-600: #2563eb;
+  --xera-primary-700: #1d4ed8;
+  --xera-primary-800: #1e40af;
+  --xera-primary-900: #1e3a8a;
+
+  /* Secondary Colors */
+  --xera-secondary: #0891b2;
+  --xera-secondary-light: #06b6d4;
+  --xera-secondary-dark: #0e7490;
+
+  /* Accent Colors */
+  --xera-accent: #0ea5e9;
+  --xera-accent-light: #38bdf8;
+  --xera-accent-dark: #0284c7;
+
+  /* Neutral Colors (Shared Across All Apps) */
+  --xera-gray-50: #f8fafc;
+  --xera-gray-100: #f1f5f9;
+  --xera-gray-200: #e2e8f0;
+  --xera-gray-300: #cbd5e1;
+  --xera-gray-400: #94a3b8;
+  --xera-gray-500: #64748b;
+  --xera-gray-600: #475569;
+  --xera-gray-700: #334155;
+  --xera-gray-800: #1e293b;
+  --xera-gray-900: #0f172a;
+
+  /* Semantic Colors (Shared) */
+  --xera-success: #059669;
+  --xera-success-light: #10b981;
+  --xera-warning: #d97706;
+  --xera-warning-light: #f59e0b;
+  --xera-danger: #dc2626;
+  --xera-danger-light: #ef4444;
+  --xera-info: #0284c7;
+  --xera-info-light: #0ea5e9;
+
+  /* Typography */
+  --xera-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --xera-font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
+
+  /* Spacing Scale */
+  --xera-space-1: 0.25rem;
+  --xera-space-2: 0.5rem;
+  --xera-space-3: 0.75rem;
+  --xera-space-4: 1rem;
+  --xera-space-5: 1.25rem;
+  --xera-space-6: 1.5rem;
+  --xera-space-8: 2rem;
+  --xera-space-10: 2.5rem;
+  --xera-space-12: 3rem;
+  --xera-space-16: 4rem;
+  --xera-space-20: 5rem;
+
+  /* Border Radius */
+  --xera-radius-sm: 0.25rem;
+  --xera-radius: 0.375rem;
+  --xera-radius-md: 0.5rem;
+  --xera-radius-lg: 0.75rem;
+  --xera-radius-xl: 1rem;
+
+  /* Shadows */
+  --xera-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --xera-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --xera-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --xera-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --xera-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* Transitions */
+  --xera-transition: all 0.2s ease-in-out;
+  --xera-transition-fast: all 0.15s ease-in-out;
+  --xera-transition-slow: all 0.3s ease-in-out;
+}
+
+/* =============================================================================
+   GLOBAL RESET AND BASE STYLES
+   ============================================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--xera-font-family);
+  line-height: 1.6;
+  color: var(--xera-gray-800);
+  background-color: var(--xera-gray-50);
+  margin: 0;
+  padding: 0;
+}
+
+/* =============================================================================
+   HEADER AND NAVIGATION
+   ============================================================================= */
+
+.xera-header {
+  background: linear-gradient(135deg, var(--xera-primary) 0%, var(--xera-primary-dark) 100%);
+  color: white;
+  padding: var(--xera-space-4) 0;
+  box-shadow: var(--xera-shadow-lg);
+  position: relative;
+  z-index: 1000;
+}
+
+.xera-header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--xera-space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.xera-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.xera-logo-icon {
+  margin-right: var(--xera-space-3);
+  font-size: 1.75rem;
+}
+
+.xera-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--xera-space-6);
+}
+
+.xera-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: var(--xera-space-2) var(--xera-space-4);
+  border-radius: var(--xera-radius);
+  transition: var(--xera-transition);
+}
+
+.xera-nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.xera-nav a.active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* =============================================================================
+   MAIN CONTENT AREA
+   ============================================================================= */
+
+.xera-main {
+  min-height: calc(100vh - 200px);
+  padding: var(--xera-space-8) 0;
+}
+
+.xera-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--xera-space-6);
+}
+
+.xera-page-header {
+  margin-bottom: var(--xera-space-8);
+  text-align: center;
+}
+
+.xera-page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--xera-gray-900);
+  margin-bottom: var(--xera-space-4);
+}
+
+.xera-page-subtitle {
+  font-size: 1.25rem;
+  color: var(--xera-gray-600);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* =============================================================================
+   CARDS AND COMPONENTS
+   ============================================================================= */
+
+.xera-card {
+  background: white;
+  border-radius: var(--xera-radius-lg);
+  box-shadow: var(--xera-shadow);
+  overflow: hidden;
+  transition: var(--xera-transition);
+}
+
+.xera-card:hover {
+  box-shadow: var(--xera-shadow-lg);
+}
+
+.xera-card-header {
+  padding: var(--xera-space-6);
+  border-bottom: 1px solid var(--xera-gray-200);
+}
+
+.xera-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--xera-gray-900);
+  margin: 0;
+}
+
+.xera-card-body {
+  padding: var(--xera-space-6);
+}
+
+.xera-card-footer {
+  padding: var(--xera-space-6);
+  border-top: 1px solid var(--xera-gray-200);
+  background: var(--xera-gray-50);
+}
+
+/* =============================================================================
+   BUTTONS
+   ============================================================================= */
+
+.xera-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--xera-space-3) var(--xera-space-6);
+  border: none;
+  border-radius: var(--xera-radius);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--xera-transition);
+  gap: var(--xera-space-2);
+}
+
+.xera-btn-primary {
+  background: var(--xera-primary);
+  color: white;
+}
+
+.xera-btn-primary:hover {
+  background: var(--xera-primary-dark);
+  color: white;
+}
+
+.xera-btn-secondary {
+  background: var(--xera-gray-200);
+  color: var(--xera-gray-800);
+}
+
+.xera-btn-secondary:hover {
+  background: var(--xera-gray-300);
+  color: var(--xera-gray-900);
+}
+
+.xera-btn-outline {
+  background: transparent;
+  color: var(--xera-primary);
+  border: 1px solid var(--xera-primary);
+}
+
+.xera-btn-outline:hover {
+  background: var(--xera-primary);
+  color: white;
+}
+
+/* =============================================================================
+   FORMS
+   ============================================================================= */
+
+.xera-form-group {
+  margin-bottom: var(--xera-space-6);
+}
+
+.xera-form-label {
+  display: block;
+  font-weight: 600;
+  color: var(--xera-gray-700);
+  margin-bottom: var(--xera-space-2);
+}
+
+.xera-form-input {
+  width: 100%;
+  padding: var(--xera-space-3);
+  border: 1px solid var(--xera-gray-300);
+  border-radius: var(--xera-radius);
+  font-size: 0.875rem;
+  transition: var(--xera-transition);
+}
+
+.xera-form-input:focus {
+  outline: none;
+  border-color: var(--xera-primary);
+  box-shadow: 0 0 0 3px rgba(var(--xera-primary), 0.1);
+}
+
+/* =============================================================================
+   TABLES
+   ============================================================================= */
+
+.xera-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: var(--xera-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--xera-shadow);
+}
+
+.xera-table th,
+.xera-table td {
+  padding: var(--xera-space-4);
+  text-align: left;
+  border-bottom: 1px solid var(--xera-gray-200);
+}
+
+.xera-table th {
+  background: var(--xera-gray-50);
+  font-weight: 600;
+  color: var(--xera-gray-700);
+}
+
+.xera-table tbody tr:hover {
+  background: var(--xera-gray-50);
+}
+
+/* =============================================================================
+   GRID SYSTEM
+   ============================================================================= */
+
+.xera-grid {
+  display: grid;
+  gap: var(--xera-space-6);
+}
+
+.xera-grid-1 { grid-template-columns: 1fr; }
+.xera-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.xera-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.xera-grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 768px) {
+  .xera-grid-2,
+  .xera-grid-3,
+  .xera-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =============================================================================
+   UTILITIES
+   ============================================================================= */
+
+.xera-text-center { text-align: center; }
+.xera-text-right { text-align: right; }
+.xera-text-left { text-align: left; }
+
+.xera-font-bold { font-weight: 700; }
+.xera-font-semibold { font-weight: 600; }
+.xera-font-medium { font-weight: 500; }
+
+.xera-text-primary { color: var(--xera-primary); }
+.xera-text-secondary { color: var(--xera-secondary); }
+.xera-text-gray { color: var(--xera-gray-600); }
+.xera-text-muted { color: var(--xera-gray-500); }
+
+.xera-bg-primary { background: var(--xera-primary); }
+.xera-bg-secondary { background: var(--xera-secondary); }
+.xera-bg-light { background: var(--xera-gray-50); }
+
+.xera-mb-0 { margin-bottom: 0; }
+.xera-mb-2 { margin-bottom: var(--xera-space-2); }
+.xera-mb-4 { margin-bottom: var(--xera-space-4); }
+.xera-mb-6 { margin-bottom: var(--xera-space-6); }
+.xera-mb-8 { margin-bottom: var(--xera-space-8); }
+
+.xera-mt-0 { margin-top: 0; }
+.xera-mt-2 { margin-top: var(--xera-space-2); }
+.xera-mt-4 { margin-top: var(--xera-space-4); }
+.xera-mt-6 { margin-top: var(--xera-space-6); }
+.xera-mt-8 { margin-top: var(--xera-space-8); }
+
+/* =============================================================================
+   FOOTER
+   ============================================================================= */
+
+.xera-footer {
+  background: var(--xera-gray-800);
+  color: var(--xera-gray-300);
+  padding: var(--xera-space-8) 0;
+  margin-top: var(--xera-space-16);
+}
+
+.xera-footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--xera-space-6);
+  text-align: center;
+}
+
+.xera-footer-text {
+  margin-bottom: var(--xera-space-4);
+}
+
+.xera-footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: var(--xera-space-6);
+}
+
+.xera-footer-links a {
+  color: var(--xera-gray-300);
+  text-decoration: none;
+  transition: var(--xera-transition);
+}
+
+.xera-footer-links a:hover {
+  color: white;
+} 
