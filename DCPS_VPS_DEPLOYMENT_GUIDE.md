@@ -32,11 +32,12 @@ sudo -u postgres psql
 
 -- In PostgreSQL shell:
 CREATE DATABASE dcps_production;
-CREATE USER dcps_user WITH PASSWORD 'your_secure_password_here';
+CREATE USER dcps_user WITH PASSWORD 'Choxos10203040';
 GRANT ALL PRIVILEGES ON DATABASE dcps_production TO dcps_user;
 ALTER USER dcps_user CREATEDB; -- For running migrations
 \q
 ```
+
 
 ## Application Deployment
 
@@ -44,14 +45,14 @@ ALTER USER dcps_user CREATEDB; -- For running migrations
 
 ```bash
 # Navigate to web directory
-cd /var/www/html
+cd /var/www/
 
 # Clone the repository (replace with your actual repo URL)
-sudo git clone https://github.com/your-username/DCPS.git dcps
-sudo chown -R $USER:$USER /var/www/html/dcps
+sudo git clone https://github.com/choxos/DCPS.git .
+sudo chown -R $USER:$USER /var/www/dcps
 
 # Navigate to project directory
-cd /var/www/html/dcps
+cd /var/www/dcps
 
 # Create virtual environment
 python3 -m venv venv
@@ -67,10 +68,10 @@ pip install -r requirements.txt
 # Create environment file
 cat > .env << EOF
 DEBUG=False
-SECRET_KEY=your_very_secure_secret_key_here_change_this
+SECRET_KEY='+35dhr3zu$(^dos06f3-&s19nc_m766lj&=6ggyb-@i(ljsz#)'
 DB_NAME=dcps_production
 DB_USER=dcps_user
-DB_PASSWORD=your_secure_database_password_here
+DB_PASSWORD=Choxos10203040
 DB_HOST=localhost
 DB_PORT=5432
 ALLOWED_HOSTS=dcps.xeradb.com,www.dcps.xeradb.com
